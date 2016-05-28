@@ -42,14 +42,12 @@ public class seriescalendar {
 	    else return true;
 	}
 
-	
-	
-	public static void main(String[] args) {
+	public seriescalendar(){
+		int month2, year2; 
 		getUrlSource src;
 		String srccode = null;
 		boolean check;
 		check = otimizador();
-		int month2, year2, i, j, limit;
 		try {
 			src = new getUrlSource("http://www.pogdesign.co.uk/cat/"+month+"-"+year);
 			srccode=src.urlsource;
@@ -71,6 +69,10 @@ public class seriescalendar {
 			}
 		}
 		dolist(srccode);
+	}
+	
+	public void escreverlista() {
+		int i, j, limit;
 		for(i=0;i<7;i++){
 			limit=lista.get(i).size();
 			for(j=0;j<limit;j++){
