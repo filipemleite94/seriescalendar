@@ -4,11 +4,36 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+
 public class seriescalendar {
 	static int year;
 	static int day;
 	static int month;
 	static ArrayList<ArrayList<serieobjeto>> lista;
+	
+	public String[] nomesdalista(){
+		int i, j, k, length, length2, length3;
+		String nome;
+		boolean b;
+		ArrayList<String> s = new ArrayList<String>();
+		length = lista.size();
+		for(i = 0; i<length; i++){
+			length2 = lista.get(i).size();
+			for(j = 0; j<length2; j++){
+				length3=s.size();
+				b=false;
+				nome = lista.get(i).get(j).nome;
+				for( k = 0; k<length3; k++){
+					if (s.get(k).equals(nome)) {
+						b=true;
+						break;
+					}
+				}
+				if (!b) s.add(nome);
+			}
+		}
+		return s.toArray(new String[0]);
+	}
 	
 	private static void dolist(String s){
 		int i, j, aux, aux2;
