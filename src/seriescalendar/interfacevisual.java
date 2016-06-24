@@ -2,6 +2,10 @@ package seriescalendar;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -57,6 +61,35 @@ public class interfacevisual extends JFrame implements ActionListener {
 				Saux = mylist.listar();
 			}
 		}
+		
+		if (source == jbGet) {
+			File f = new File("arquivo.txt");
+			String line;
+			mylist.removeall();
+			files2.clear();
+			try {
+				BufferedReader br = new BufferedReader(new FileReader(f));
+				line = br.readLine();
+				while(line != null){
+					mylist.add(line);
+					files2.addElement(line);
+					line = br.readLine();
+				}
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+		
+		if (source == jbSave) {
+			File f = new File("arquivo.txt");
+			try {
+				mylist.savemylist(f);
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
 
 		if (source == jbCheck) {
 			ArrayList<ArrayList<serieobjeto>> listafollow;
@@ -83,8 +116,9 @@ public class interfacevisual extends JFrame implements ActionListener {
 		setDefaultCloseOperation(EXIT_ON_CLOSE); // Ends process when closed
 		setResizable(false); // It is not allowed to resize the Layout
 
-		jtFollow = new JTextArea(50, 20);
-		jtFollow.setBounds(760, 80, 350, 495);
+		jtFollow = new JTextArea(30, 20);
+		jsText3 = new JScrollPane(jtFollow);
+		jsText3.setBounds(760, 80, 350, 495);
 		jtFollow.setFont(new Font("SansSerif", Font.BOLD, 12));
 
 		j1List = new JList<String>(files);
@@ -103,7 +137,7 @@ public class interfacevisual extends JFrame implements ActionListener {
 		//j2List.setSize(new Dimension(80, 180));
 		//j2List.setAutoscrolls(true);
 
-		jlUpdate = new JLabel("Update", Label.LEFT);
+		jlUpdate = new JLabel("Calendário de Séries", Label.LEFT);
 		jlUpdate.setBounds(20, 10, 80, 25);
 		jlUpdate.setFont(new Font("SansSerif", Font.BOLD, 15));
 
@@ -123,7 +157,9 @@ public class interfacevisual extends JFrame implements ActionListener {
 		jbRemove.addActionListener(this);
 		jbAdd.addActionListener(this);
 		jbCheck.addActionListener(this);
-
+		jbGet.addActionListener(this);
+		jbSave.addActionListener(this);
+		
 		getContentPane().setLayout(null);
 
 		getContentPane().add(jlUpdate);
@@ -135,7 +171,7 @@ public class interfacevisual extends JFrame implements ActionListener {
 		getContentPane().add(jbRemove);
 		getContentPane().add(jbAdd);
 		getContentPane().add(jbCheck);
-		getContentPane().add(jtFollow);
+		getContentPane().add(jsText3);
 	}
 
 	public static String dayofweek(int i) {
