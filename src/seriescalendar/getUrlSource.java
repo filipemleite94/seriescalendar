@@ -18,8 +18,7 @@ public class getUrlSource{
 	    for(i=0; i<450; in.readLine(), i++); //Os títulos começam depois da linha 450;
 	    for(inputLine = in.readLine(); !inputLine.equals("<div class=\"noday\"></div>"); inputLine = in.readLine());
 	    for(; inputLine.equals("<div class=\"noday\"></div>"); inputLine = in.readLine());
-	    for(inputLine = in.readLine(); !inputLine.equals("<div class=\"noday\"></div>"); inputLine = in.readLine())
-	    		a.append(inputLine+"\n\r");
+	    for(inputLine = in.readLine(); !inputLine.equals("   <div class=\"box728 abot\">"); inputLine = in.readLine())	    		a.append(inputLine+"\n\r");
 	    in.close();
 	    urlsource=a.toString();
 	}

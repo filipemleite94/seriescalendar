@@ -12,6 +12,7 @@ public class interfacevisual extends JFrame implements ActionListener {
 	JList<String> j1List, j2List;
 	JButton jbUpdate, jbRemove, jbAdd, jbCheck;
 	JLabel jlUpdate;
+	JScrollPane jsText1,jsText2,jsText3;
 	String[] Saux;
 	static seriescalendar sc;
 	static followed mylist;
@@ -87,14 +88,20 @@ public class interfacevisual extends JFrame implements ActionListener {
 		jtFollow.setFont(new Font("SansSerif", Font.BOLD, 12));
 
 		j1List = new JList<String>(files);
-		j1List.setSize(new Dimension(80, 180));
-		j1List.setBounds(20, 80, 350, 495);
-		j1List.setAutoscrolls(true);
+		jsText1 = new JScrollPane(j1List);
+		//j1List.setSize(new Dimension(80, 180));
+		jsText1.setBounds(20, 80, 350, 495);
+		//j1List.setAutoscrolls(true);
+		
+		
+		
 
 		j2List = new JList<String>(files2);
-		j2List.setSize(new Dimension(80, 180));
-		j2List.setBounds(390, 80, 350, 495);
-		j2List.setAutoscrolls(true);
+		jsText2 = new JScrollPane(j2List);
+		//j1List.setSize(new Dimension(80, 180));
+		jsText2.setBounds(390, 80, 350, 495);
+		//j2List.setSize(new Dimension(80, 180));
+		//j2List.setAutoscrolls(true);
 
 		jlUpdate = new JLabel("Update", Label.LEFT);
 		jlUpdate.setBounds(20, 10, 80, 25);
@@ -117,8 +124,8 @@ public class interfacevisual extends JFrame implements ActionListener {
 
 		getContentPane().add(jlUpdate);
 		getContentPane().add(jbUpdate);
-		getContentPane().add(j1List);
-		getContentPane().add(j2List);
+		getContentPane().add(jsText1);
+		getContentPane().add(jsText2);
 		getContentPane().add(jbRemove);
 		getContentPane().add(jbAdd);
 		getContentPane().add(jbCheck);
