@@ -138,7 +138,7 @@ public class interfacevisual extends JFrame implements ActionListener {
 		//j2List.setAutoscrolls(true);
 
 		jlUpdate = new JLabel("Calendário de Séries", Label.LEFT);
-		jlUpdate.setBounds(20, 10, 80, 25);
+		jlUpdate.setBounds(20, 10, 200, 25);
 		jlUpdate.setFont(new Font("SansSerif", Font.BOLD, 15));
 
 		jbUpdate = new JButton("Update");
