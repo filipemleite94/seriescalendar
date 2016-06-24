@@ -10,7 +10,7 @@ import javax.swing.*;
 public class interfacevisual extends JFrame implements ActionListener {
 	JTextArea jtFollow;
 	JList<String> j1List, j2List;
-	JButton jbUpdate, jbRemove, jbAdd, jbCheck;
+	JButton jbUpdate, jbRemove, jbAdd, jbCheck, jbGet, jbSave;
 	JLabel jlUpdate;
 	JScrollPane jsText1,jsText2,jsText3;
 	String[] Saux;
@@ -108,10 +108,14 @@ public class interfacevisual extends JFrame implements ActionListener {
 		jlUpdate.setFont(new Font("SansSerif", Font.BOLD, 15));
 
 		jbUpdate = new JButton("Update");
+		jbGet = new JButton("Get my List!");
+		jbSave = new JButton("Save my List!");
 		jbRemove = new JButton("Remove");
 		jbAdd = new JButton("Add");
 		jbCheck = new JButton("Check");
-		jbUpdate.setBounds(350, 40, 90, 25);
+		jbUpdate.setBounds(100, 40, 90, 25);
+		jbGet.setBounds(400, 40, 120, 25);
+		jbSave.setBounds(550, 40, 120, 25);
 		jbRemove.setBounds(390, 600, 90, 25);
 		jbAdd.setBounds(20, 600, 90, 25);
 		jbCheck.setBounds(760, 600, 90, 25);
@@ -124,6 +128,8 @@ public class interfacevisual extends JFrame implements ActionListener {
 
 		getContentPane().add(jlUpdate);
 		getContentPane().add(jbUpdate);
+		getContentPane().add(jbGet);
+		getContentPane().add(jbSave);
 		getContentPane().add(jsText1);
 		getContentPane().add(jsText2);
 		getContentPane().add(jbRemove);
